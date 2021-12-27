@@ -74,7 +74,7 @@ highlight askås_label ctermbg=053 ctermfg=197 cterm=bold
 " TODO askås_ärende_beskr
 syn match askås_comment    /\v^\s*\zs#.*\ze/ contains=askås_ärende_id,askås_ärende_beskr,askås_ärende_status_klar,askås_version_number,askås_attention,askås_url_spc_arende,askås_url_git_merge_request
 hi  link  askås_comment		 Comment
-syn match askås_ärende_id  /\v^#\s+\zs[0-9]+\ze/ contained
+syn match askås_ärende_id  /\v^#\s+\zs([0-9]+|INTERN)\ze/ contained
 highlight askås_ärende_id  ctermfg=197 cterm=bold
 
 " For notes regarding testcases.
