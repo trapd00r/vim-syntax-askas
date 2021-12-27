@@ -1,7 +1,7 @@
 "     What: askas.vim
 " Language: askås
 "   Author: Magnus Woldrich <m@japh.se>
-"     Date: 2021-11-05
+"     Date: 2021-12-27
 
 " Vim syntax file for notes over at Askås.
 " :setf askas
@@ -37,6 +37,12 @@ syn match askås_actual_funk /\vfunk\=\zs[A-Za-z0-9_-]+/ contained
 highlight askås_url         ctermfg=172 cterm=bolditalic
 highlight askås_actual_funk ctermfg=172 cterm=bold
 
+" Match SPC ticket ID as well as merge request number.
+syn match askås_url_spc_arende        /\vKalender_ID[=]\zs\d+/ contained
+syn match askås_url_git_merge_request /\vmerge_requests\/\zs\d+/ contained
+highlight askås_url_spc_arende        ctermfg=197 cterm=bold
+highlight askås_url_git_merge_request ctermfg=196 cterm=bold
+
 " Status on ticket id. \C == do not ignore case.
 syn match askås_ärende_status_klar /\v\CKLAR/
 highlight askås_ärende_status_klar ctermfg=112 cterm=bold
@@ -66,7 +72,7 @@ highlight askås_label ctermbg=053 ctermfg=197 cterm=bold
 " # 41942 - 2021-12-21 - Profilbild admin | 10.21.51 KLAR
 " ################################################################################
 " TODO askås_ärende_beskr
-syn match askås_comment    /\v^\s*\zs#.*\ze/ contains=askås_ärende_id,askås_ärende_beskr,askås_ärende_status_klar,askås_version_number,askås_attention
+syn match askås_comment    /\v^\s*\zs#.*\ze/ contains=askås_ärende_id,askås_ärende_beskr,askås_ärende_status_klar,askås_version_number,askås_attention,askås_url_spc_arende,askås_url_git_merge_request
 hi  link  askås_comment		 Comment
 syn match askås_ärende_id  /\v^#\s+\zs[0-9]+\ze/ contained
 highlight askås_ärende_id  ctermfg=197 cterm=bold
