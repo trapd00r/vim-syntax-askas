@@ -34,7 +34,7 @@ hi  link  askås_conditional Conditional
 " Match URLs. Also highlight Askås funks if contained.
 syn match askås_url         /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/ contains=askås_actual_funk
 syn match askås_actual_funk /\vfunk\=\zs[A-Za-z0-9_-]+/ contained
-highlight askås_url         ctermfg=172 cterm=bolditalic
+highlight askås_url         ctermfg=172 cterm=italic
 highlight askås_actual_funk ctermfg=172 cterm=bold
 
 " Match SPC ticket ID as well as merge request number.
@@ -46,6 +46,9 @@ highlight askås_url_git_merge_request ctermfg=196 cterm=bold
 " Status on ticket id. \C == do not ignore case.
 syn match askås_ärende_status_klar /\v\CKLAR/
 highlight askås_ärende_status_klar ctermfg=112 cterm=bold
+
+syn match askås_ärende_status_todo /\v\CTODO/
+highlight askås_ärende_status_todo ctermfg=196 cterm=bold
 
 " Askås version number.
 syn match askås_version_number /\v[|]\s*\zs\d+[.]\d+[.]\d+([.]\d+)?/
@@ -72,7 +75,7 @@ highlight askås_label ctermbg=053 ctermfg=197 cterm=bold
 " # 41942 - 2021-12-21 - Profilbild admin | 10.21.51 KLAR
 " ################################################################################
 " TODO askås_ärende_beskr
-syn match askås_comment    /\v^\s*\zs#.*\ze/ contains=askås_ärende_id,askås_ärende_beskr,askås_ärende_status_klar,askås_version_number,askås_attention,askås_url_spc_arende,askås_url_git_merge_request
+syn match askås_comment    /\v^\s*\zs#.*\ze/ contains=askås_ärende_id,askås_ärende_beskr,askås_ärende_status_klar,askås_version_number,askås_attention,askås_url_spc_arende,askås_url_git_merge_request,askås_file_js,askås_file_pl,askås_file_pm,askås_file_tt
 hi  link  askås_comment		 Comment
 syn match askås_ärende_id  /\v^#\s+\zs([0-9]+|INTERN)\ze/ contained
 highlight askås_ärende_id  ctermfg=197 cterm=bold
