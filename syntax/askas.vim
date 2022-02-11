@@ -50,6 +50,9 @@ highlight askås_ärende_status_klar ctermfg=112 cterm=bold
 syn match askås_ärende_status_todo /\v\CTODO/
 highlight askås_ärende_status_todo ctermfg=196 cterm=bold
 
+syn match askås_ärende_status_help /\v\CHELP/
+highlight askås_ärende_status_help ctermfg=220 cterm=bold
+
 " Askås version number.
 syn match askås_version_number /\v[|]\s*\zs\d+[.]\d+[.]\d+([.]\d+)?/
 highlight askås_version_number ctermfg=220 cterm=reversebold
@@ -77,7 +80,7 @@ highlight askås_label ctermbg=053 ctermfg=197 cterm=bold
 " TODO askås_ärende_beskr
 syn match askås_comment    /\v^\s*\zs#.*\ze/ contains=askås_ärende_id,askås_ärende_beskr,askås_ärende_status_klar,askås_version_number,askås_attention,askås_url_spc_arende,askås_url_git_merge_request,askås_file_js,askås_file_pl,askås_file_pm,askås_file_tt
 hi  link  askås_comment		 Comment
-syn match askås_ärende_id  /\v^#\s+\zs([0-9]+|INTERN)\ze/ contained
+syn match askås_ärende_id  /\v^#[<]\s+\zs([0-9]+|INTERN)\ze/ contained
 highlight askås_ärende_id  ctermfg=197 cterm=bold
 
 " For notes regarding testcases.
