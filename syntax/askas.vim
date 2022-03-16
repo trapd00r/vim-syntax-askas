@@ -34,7 +34,7 @@ hi  link  askås_conditional Conditional
 " Match URLs. Also highlight Askås funks if contained.
 syn match askås_url         /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/ contains=askås_actual_funk
 syn match askås_actual_funk /\vfunk\=\zs[A-Za-z0-9_-]+/ contained
-highlight askås_url         ctermfg=172 cterm=italic
+highlight askås_url         ctermfg=172 cterm=bolditalic
 highlight askås_actual_funk ctermfg=172 cterm=bold
 
 " Match SPC ticket ID as well as merge request number.
